@@ -23,7 +23,7 @@ public class AccountService {
         var account = accountRepository.findByDocumentNumber(accountDTO.documentNumber());
 
         if(account.isPresent()) {
-            throw new AccountExistentException("Account with number: " + accountDTO.documentNumber() + "already exists!");
+            throw new AccountExistentException("Account with number: " + accountDTO.documentNumber() + " already exists!");
         }
 
         return accountRepository.save(new AccountEntity(accountDTO.documentNumber()));
