@@ -10,12 +10,12 @@ public class OperationTypeEntity {
     @Id
     @Column(name="operation_type_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer operationId;
+    private Integer operationTypeId;
 
     @Column(name="description")
     private String description;
 
-    public Integer getOperationId() {
-        return operationId;
+    public Integer getOperationTypeId() {
+        return operationTypeId;
     }
 }
