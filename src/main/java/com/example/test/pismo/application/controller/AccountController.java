@@ -3,6 +3,7 @@ package com.example.test.pismo.application.controller;
 import com.example.test.pismo.application.dto.request.AccountDTO;
 import com.example.test.pismo.application.dto.response.AccountInfoResponse;
 import com.example.test.pismo.domain.service.AccountService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,9 +13,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/accounts")
 public class AccountController {
+    private final AccountService accountService;
 
-    @Autowired
-    private AccountService accountService;
+    public AccountController(AccountService accountService) {
+        this.accountService = accountService;
+    }
 
     @PostMapping
     public ResponseEntity<AccountInfoResponse> create(@RequestBody @Validated AccountDTO accountDTO) {
@@ -25,13 +28,13 @@ public class AccountController {
         );
     }
 
-    @GetMapping("/{documentNumber}")
-    public AccountInfoResponse getAccount(@PathVariable String documentNumber) {
-        if(documentNumber == null || documentNumber.isEmpty()) {
+    @GetMapping("/{accountId}")
+    public ResponseEntity<AccountInfoResponse> getAccount(@PathVariable @Valid String accountId) {
+
+        if(accountId == null || accountId.isEmpty() || !accountId.matches("\\d")) {
             throw new IllegalArgumentException("Document number must not be null or empty");
         }
-
-        var account = accountService.getAccountByDocumentNumber(documentNumber);
-        return ResponseEntity.ok(account).getBody();
+        var account = accountService.getAccountById(Integer.parseInt(accountId));
+        return ResponseEntity.ok(account);
     }
 }

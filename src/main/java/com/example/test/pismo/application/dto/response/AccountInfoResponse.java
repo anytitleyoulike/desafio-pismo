@@ -1,3 +1,10 @@
 package com.example.test.pismo.application.dto.response;
 
-public record AccountInfoResponse(Integer accountId, String documentNumber){}
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record AccountInfoResponse(
+        @JsonProperty("account_id")
+        Integer accountId,
+        @JsonProperty("document_number")
+        String documentNumber
+){}
