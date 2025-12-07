@@ -1,4 +1,4 @@
-package com.example.test.pismo.application.repository;
+package com.example.test.pismo.infrastructure.repository;
 
 import com.example.test.pismo.domain.entities.TransactionEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
