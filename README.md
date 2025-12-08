@@ -25,7 +25,8 @@ To install the application, follow these steps:
     ```
 ## Usage
 
-Use the following command to run the application and start migrations:
+Use the following command to run the application and start migrations: 
+Or run the application directly from your IDE.
 ```bash
 java -jar target/pismo-1.0.jar
 ```
