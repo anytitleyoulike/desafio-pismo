@@ -42,7 +42,6 @@ public class AccountControllerTest {
     @AfterEach
     @Transactional
     void tearDown() {
-        System.out.println("Deleting account with document number: " + documentNumber);
         accountRepository.deleteByDocumentNumber(documentNumber);
     }
     @Test
