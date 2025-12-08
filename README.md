@@ -8,32 +8,28 @@ This repository contains the solution to the Pismo coding challenge. The challen
 - [Technologies Used](#technologies-used)
 
 
-## Installation
-To install the application, follow these steps:
+## Usage
+To run the application, follow these steps:
 1. Clone repository
 2. Navigate to the project directory:
     ```bash
     cd pismo-challenge
     ```
-3. Run the docker-compose to start the Postgres database:
+3. Run the docker-compose to start the application and the database:
    ```bash
     docker-compose up -d
     ```
-4. Build the project and run unit / E2E tests using Maven:
+4. To build locally and run unit / E2E tests using Maven:
    ```bash
     mvn clean install
     ```
-## Usage
 
-Use the following command to run the application and start migrations: 
-Or run the application directly from your IDE.
-```bash
-java -jar target/pismo-1.0.jar
-```
-
-## API Documentation
-To access endpoints please use the following base URL:  
+### API Documentation
+To access endpoints please use the following URL:  
 [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+
+> You can also run the application using your IDE of choice by running the `PismoChallengeApplication` class.
+
 
 ## Technologies Used
 - Java 21

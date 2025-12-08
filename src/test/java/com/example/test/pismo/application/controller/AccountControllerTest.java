@@ -44,6 +44,7 @@ public class AccountControllerTest {
     void tearDown() {
         accountRepository.deleteByDocumentNumber(documentNumber);
     }
+
     @Test
     void createAccount_ReturnsCreated() {
         var request = Map.of("document_number", documentNumber);

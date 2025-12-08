@@ -2,7 +2,7 @@ spring:
   application:
     name: Pismo
   datasource:
-    url: jdbc:postgresql://localhost:5432/pismo
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/pismo}
     username: admin
     password: admin
     driver-class-name: org.postgresql.Driver
