@@ -30,8 +30,8 @@ public class AccountController {
     @GetMapping("/{accountId}")
     public ResponseEntity<AccountInfoResponse> getAccount(@PathVariable @Valid String accountId) {
 
-        if(accountId == null || accountId.isEmpty() || !accountId.matches("\\d")) {
-            throw new IllegalArgumentException("Document number must not be null or empty");
+        if(accountId == null || accountId.isEmpty() || !accountId.matches("^\\d+$")) {
+            throw new IllegalArgumentException("Account ID must not be null or empty");
         }
         var account = accountService.getAccountById(Integer.parseInt(accountId));
         return ResponseEntity.ok(account);
